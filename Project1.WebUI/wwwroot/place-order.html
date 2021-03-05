@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slithy Toves Inventory Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link href="form-style.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center">Place an Order</h1>
+        <br>
+        <form action="#nowhere" method="POST">
+            <div class="row">
+                <div class="form-group gap-2 col-6 mx-auto">
+                    <label for="customer-no">Customer Number</label>
+                    <input type="number" class="form-control" id="customer-no" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group gap-2 col-6 mx-auto">
+                    <label for="location">Store ID/Location</label>
+                    <select class="form-control" name="location" id="location" required>
+                        <option style="display:none"></option>
+                        <option value="slithy">1 - The Slithy Toves</option>
+                        <option value="vorpal">2 - The Vorpal Blade</option>
+                        <option value="tumtum">3 - The Tumtum Tree</option>
+                    </select>
+                </div> 
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="form-group col-4">
+                    <label for="product">Product</label>
+                    <select class="form-control" name="product" id="product" required>
+                        <option style="display:none"></option>
+                        <option value="mockingbird">To Kill a Mockingbird - $10.99</option>
+                        <option value="pride">Pride and Prejudice - $9.99</option>
+                        <option value="zombie">Pride and Prejudice and Zombies - $11.99</option>
+                        <option value="gatsby">The Great Gatsby - $4.99</option>
+                        <option value="world">Brave New World - $8.99</option>
+                        <option value="1984">1984 - $6.99</option>
+                        <option value="jane">Jane Eyre - $10.99</option>
+                        <option value="crime">Crime and Punishment - $8.99</option>
+                        <option value="call">Call of the Wild - $8.99</option>
+                        <option value="moby">Moby Dick - 9.99</option>
+                        <option value="lion">The Lion, the Witch, and the Wardrobe - 9.99</option>
+                        <option value="monster">Frankenstein - 9.99</option>
+                        <option value="toaster">The Brave Little Toaster - 9.99</option>
+                    </select>
+                </div>
+                <div class="form-group col-1">
+                    <label for="quantity">Quantity</label>
+                    <input type="number" class="form-control" id="quantity" required min="1">
+                </div>
+                <div class="form-group col-1">
+                    <label for="linetotal">Line Total</label>
+                    <input type="text" class="form-control" id="linetotal">
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="form-group gap-2 col-4">
+                    <label for="product">Product</label>
+                    <select class="form-control" name="product" id="product">
+                        <option style="display:none"></option>
+                        <option value="mockingbird">To Kill a Mockingbird - $10.99</option>
+                        <option value="pride">Pride and Prejudice - $9.99</option>
+                        <option value="zombie">Pride and Prejudice and Zombies - $11.99</option>
+                        <option value="gatsby">The Great Gatsby - $4.99</option>
+                        <option value="world">Brave New World - $8.99</option>
+                        <option value="1984">1984 - $6.99</option>
+                        <option value="jane">Jane Eyre - $10.99</option>
+                        <option value="crime">Crime and Punishment - $8.99</option>
+                        <option value="call">Call of the Wild - $8.99</option>
+                        <option value="moby">Moby Dick - 9.99</option>
+                        <option value="lion">The Lion, the Witch, and the Wardrobe - 9.99</option>
+                        <option value="monster">Frankenstein - 9.99</option>
+                        <option value="toaster">The Brave Little Toaster - 9.99</option>
+                    </select>
+                </div>
+                <div class="form-group gap-2 col-1">
+                    <label for="quantity">Quantity</label>
+                    <input type="number" class="form-control" id="quantity" min="0">
+                </div>
+                <div class="form-group col-1">
+                    <label for="linetotal">Line Total</label>
+                    <input type="text" class="form-control" id="linetotal">
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="form-group gap-2 col-4">
+                    <label for="product">Product</label>
+                    <select class="form-control" name="product" id="product">
+                        <option style="display:none"></option>
+                        <option value="mockingbird">To Kill a Mockingbird - $10.99</option>
+                        <option value="pride">Pride and Prejudice - $9.99</option>
+                        <option value="zombie">Pride and Prejudice and Zombies - $11.99</option>
+                        <option value="gatsby">The Great Gatsby - $4.99</option>
+                        <option value="world">Brave New World - $8.99</option>
+                        <option value="1984">1984 - $6.99</option>
+                        <option value="jane">Jane Eyre - $10.99</option>
+                        <option value="crime">Crime and Punishment - $8.99</option>
+                        <option value="call">Call of the Wild - $8.99</option>
+                        <option value="moby">Moby Dick - 9.99</option>
+                        <option value="lion">The Lion, the Witch, and the Wardrobe - 9.99</option>
+                        <option value="monster">Frankenstein - 9.99</option>
+                        <option value="toaster">The Brave Little Toaster - 9.99</option>
+                    </select>
+                </div>
+                <div class="form-group gap-2 col-1">
+                    <label for="quantity">Quantity</label>
+                    <input type="number" class="form-control" id="quantity" min="0">
+                </div>
+                <div class="form-group col-1">
+                    <label for="linetotal">Line Total</label>
+                    <input type="text" class="form-control" id="linetotal">
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="form-group gap-2 col-4">
+                    <label for="product">Product</label>
+                    <select class="form-control" name="product" id="product">
+                        <option style="display:none"></option>
+                        <option value="mockingbird">To Kill a Mockingbird - $10.99</option>
+                        <option value="pride">Pride and Prejudice - $9.99</option>
+                        <option value="zombie">Pride and Prejudice and Zombies - $11.99</option>
+                        <option value="gatsby">The Great Gatsby - $4.99</option>
+                        <option value="world">Brave New World - $8.99</option>
+                        <option value="1984">1984 - $6.99</option>
+                        <option value="jane">Jane Eyre - $10.99</option>
+                        <option value="crime">Crime and Punishment - $8.99</option>
+                        <option value="call">Call of the Wild - $8.99</option>
+                        <option value="moby">Moby Dick - 9.99</option>
+                        <option value="lion">The Lion, the Witch, and the Wardrobe - 9.99</option>
+                        <option value="monster">Frankenstein - 9.99</option>
+                        <option value="toaster">The Brave Little Toaster - 9.99</option>
+                    </select>
+                </div>
+                <div class="form-group gap-2 col-1">
+                    <label for="quantity">Quantity</label>
+                    <input type="number" class="form-control" id="quantity" min="0">
+                </div>
+                <div class="form-group col-1">
+                    <label for="linetotal">Line Total</label>
+                    <input type="text" class="form-control" id="linetotal">
+                </div>
+            </div>
+
+            <div class="subtotal">
+                <h3>Subtotal: $<span id="sum"></span></h3>
+            </div>
+     
+            <div class="form-group">
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success" id="btn-order">Place Order</button>
+                </div>
+                <div class="text-center">
+                    <button type="button" class="btn btn-success" onclick="history.back()">Return to Main Menu</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="place-order.js"></script>
+</body>
+</html>
