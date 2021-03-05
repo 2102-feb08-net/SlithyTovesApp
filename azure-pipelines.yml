@@ -1,4 +1,3 @@
-# a pipeline is a set of stuff that will run to implement continuous integration
 #    build, test, anything it can do to automatically check the quality of the code.
 #   and, maybe also package/publish it, maybe even deploy it to some server or cloud environment like Azure App Service
 
@@ -37,7 +36,7 @@ steps:
   inputs:
     command: 'test'
     arguments: '--configuration $(buildConfiguration) --collect "xplat code coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=cobertura,opencover'
-    workingDirectory: 'ashleyb-project1'
+    workingDirectory: './Project1.Test'
 
 - task: SonarCloudAnalyze@1
   displayName: sonar run analysis
@@ -65,7 +64,7 @@ steps:
   displayName: app service deploy
   inputs:
     ConnectionType: 'AzureRM'
-    azureSubscription: 'Training(0c61e2ed-4a6a-437f-9a03-1f223527220b)'
+    azureSubscription: 'New Dev Subscription(25ecedc0-aae0-491c-a636-7027c842a29e)'
     appType: 'webApp'
     WebAppName: 'ashleyb-project1'
     packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
