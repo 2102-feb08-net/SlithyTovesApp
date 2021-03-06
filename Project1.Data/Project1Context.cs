@@ -32,6 +32,9 @@ namespace Project1.Data
             {
                 entity.ToTable("customers");
 
+                entity.HasIndex(e => e.Email, "UQ__customer__AB6E6164BADEA13B")
+                    .IsUnique();
+
                 entity.Property(e => e.CustomerId).HasColumnName("customerId");
 
                 entity.Property(e => e.Email)

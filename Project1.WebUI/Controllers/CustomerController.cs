@@ -6,7 +6,6 @@ using Project1.BL;
 namespace Project1.WebUI.Controllers
 {
     [ApiController]
-    [Route("api/customer")]
     public class CustomerController : ControllerBase
     {
         private readonly ICustomerRepository _customerRepository;
@@ -22,10 +21,10 @@ namespace Project1.WebUI.Controllers
             _customerRepository.CreateCustomer(customer);
         }
 
-        [HttpGet("customerbyname/{partOfName}")]
-        public List<BL.Customer> GetCustomerByName(string partOfName)
+        [HttpGet("customerbyemail/{email}")]
+        public BL.Customer GetCustomerByEmail(string email)
         {
-            return _customerRepository.GetCustomerByName(partOfName);
+            return _customerRepository.GetCustomerByEmail(email);
         }
 
         [HttpGet("customerbyid/{id}")]

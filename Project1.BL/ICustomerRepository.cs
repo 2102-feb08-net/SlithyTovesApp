@@ -5,7 +5,7 @@ namespace Project1.BL
     {
         void CreateCustomer(Customer customer);
 
-        List<BL.Customer> GetCustomerByName(string partOfName);
+        BL.Customer GetCustomerByEmail(string email);
 
         BL.Customer GetCustomerById(int id);
     }

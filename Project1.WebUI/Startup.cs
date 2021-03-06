@@ -4,6 +4,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using System.IO;
+using Project1.Data;
+using Project1.BL;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace Project1.WepUI
@@ -20,12 +24,20 @@ namespace Project1.WepUI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            string connectionString = File.ReadAllText("C:/revature/st-conn.txt");
+
+            services.AddDbContext<Project1Context>(options =>
+            {
+                options.UseSqlServer(connectionString);
+            });
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Project1.WepUI", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Project1.WebUI", Version = "v1" });
             });
+
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

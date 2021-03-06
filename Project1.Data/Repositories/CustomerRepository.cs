@@ -1,9 +1,6 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Project1.BL;
-using Project1.Data;
 
 
 namespace Project1.Data
@@ -20,24 +17,34 @@ namespace Project1.Data
         public void CreateCustomer(BL.Customer customer)
         {
             Customer customerToCreate = new Customer() 
-                { FirstName = customer.FirstName, LastName = customer.LastName, Phone = customer.Phone, 
+                { CustomerId = customer.CustomerId, FirstName = customer.FirstName, LastName = customer.LastName, Phone = customer.Phone, 
                     Email = customer.Email, Zip = customer.Zip };
             
             _context.Add(customerToCreate);
             _context.SaveChanges();
         }
 
-        public List<BL.Customer> GetCustomerByName(string partOfName)
+        public BL.Customer GetCustomerByEmail(string email)
         {
-            List<BL.Customer> list = new List<BL.Customer>();
-            var results = _context.Customers.Where(c => c.FirstName.ToLower().Contains(partOfName) || c.LastName.ToLower().Contains(partOfName));
-
-            foreach (var result in results)
+            BL.Customer customer = new BL.Customer();
+            var query = _context.Customers.FirstOrDefault(e => e.Email == email);
+            if (query != null) 
             {
-                list.Add(new BL.Customer(result.CustomerId, result.FirstName, result.LastName, result.Phone, result.Email, result.Zip));
-                Console.WriteLine($"{result.CustomerId}\t{result.FirstName} {result.LastName}\t{result.Phone}\t{result.Email}\t{result.Zip}");
+                customer.FirstName = query.FirstName;
+                customer.LastName = query.LastName;
+                customer.Phone = query.Phone;
+                customer.Email = query.Email;
+                customer.Zip = query.Zip;
             }
-            return list;
+            else 
+            {
+                customer.FirstName = null;
+                customer.LastName = null;
+                customer.Phone = null;
+                customer.Email = null;
+                customer.Zip = null;
+            }
+            return customer;
         }
 
         public BL.Customer GetCustomerById(int id) 
@@ -45,7 +52,7 @@ namespace Project1.Data
             var result = _context.Customers.Where(c => c.CustomerId == id).First();
             BL.Customer customer = 
                 new BL.Customer(result.CustomerId, result.FirstName, result.LastName, result.Phone, result.Email, result.Zip);
-            Console.WriteLine($"\n\nCustomer ID: {customer.CustomerId}\nName: {customer.FirstName} {customer.LastName}\nPhone: {customer.Phone}\nEmail: {customer.Email}\nZip: {customer.Zip}");
+            //Console.WriteLine($"\n\nCustomer ID: {customer.CustomerId}\nName: {customer.FirstName} {customer.LastName}\nPhone: {customer.Phone}\nEmail: {customer.Email}\nZip: {customer.Zip}");
             return customer;
         }
     }
