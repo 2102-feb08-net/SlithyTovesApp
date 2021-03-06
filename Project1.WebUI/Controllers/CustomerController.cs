@@ -1,14 +1,12 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Project1.BL;
+
 
 namespace Project1.WebUI.Controllers
 {
     [ApiController]
+    [Route("api/customer")]
     public class CustomerController : ControllerBase
     {
         private readonly ICustomerRepository _customerRepository;
@@ -18,19 +16,19 @@ namespace Project1.WebUI.Controllers
             _customerRepository = customerRepository;
         }
 
-        [HttpPost("api/customer")]
+        [HttpPost("newcustomer")]
         public void CreateCustomer(BL.Customer customer)
         {
             _customerRepository.CreateCustomer(customer);
         }
 
-        [HttpGet("api/customer/{partOfName}")]
+        [HttpGet("customerbyname/{partOfName}")]
         public List<BL.Customer> GetCustomerByName(string partOfName)
         {
             return _customerRepository.GetCustomerByName(partOfName);
         }
 
-        [HttpGet("api/customer/{id}")]
+        [HttpGet("customerbyid/{id}")]
         public BL.Customer GetCustomerById(int id)
         {
             return _customerRepository.GetCustomerById(id);
