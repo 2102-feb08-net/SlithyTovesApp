@@ -3,7 +3,7 @@ namespace Project1.BL
     public class Customer
     {
         #nullable enable
-        public int CustomerId { get; private set; }
+        public int CustomerId { get; set; }
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
         public string? Phone { get; set; }

@@ -2,8 +2,9 @@ namespace Project1.BL
 {
     public class Store
     {
-        public int StoreId { get; private set; }
-        public string StoreName { get; set; }
+        #nullable enable
+        public int? StoreId { get; private set; }
+        public string? StoreName { get; set; }
 
         public Store()
         {   

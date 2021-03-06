@@ -2,9 +2,10 @@ namespace Project1.BL
 {
     public class Product
     {
-        public int ProductId { get; private set; }
-        public string ProductName { get; set; }
-        public decimal UnitPrice { get; set; }
+        #nullable enable
+        public int? ProductId { get; private set; }
+        public string? ProductName { get; set; }
+        public decimal? UnitPrice { get; set; }
 
         public Product()
         {   

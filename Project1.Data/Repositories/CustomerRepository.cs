@@ -30,6 +30,7 @@ namespace Project1.Data
             var query = _context.Customers.FirstOrDefault(e => e.Email == email);
             if (query != null) 
             {
+                customer.CustomerId = query.CustomerId;
                 customer.FirstName = query.FirstName;
                 customer.LastName = query.LastName;
                 customer.Phone = query.Phone;

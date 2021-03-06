@@ -10,6 +10,11 @@ namespace Project1.WebUI
     {
         private readonly IProductRepository _productRepository;
 
+        public ProductController(IProductRepository productRepository)
+        {
+            _productRepository = productRepository;
+        }
+
         [HttpGet("productbyid/{id}")]
         public BL.Product GetProductById(int id) 
         {
