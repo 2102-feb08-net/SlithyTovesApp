@@ -38,7 +38,7 @@ namespace Project1.WepUI
             });
 
             services.AddScoped<ICustomerRepository, CustomerRepository>();
-            //services.AddScoped<IOrderDetailRepository, OrderDetailRepository>();
+            services.AddScoped<IOrderDetailRepository, OrderDetailRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IStoreRepository, StoreRepository>();

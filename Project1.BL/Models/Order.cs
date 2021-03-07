@@ -1,15 +1,15 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Project1.BL
 {
     public class Order
     {
-        #nullable enable
-        public int? OrderId { get; set; }
-        public int? CustomerId { get; set; }
-        public int? StoreId { get; set; }
-        public DateTime? OrderDate { get; set; }
-        public decimal? Subtotal { get; set; }
+        public int OrderId { get; set; }
+        public int CustomerId { get; set; }
+        public int StoreId { get; set; }
+        public DateTime OrderDate { get; set; }
+        public decimal Subtotal { get; set; }
 
 
         public Order()
