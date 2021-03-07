@@ -10,7 +10,7 @@ ordersearch.addEventListener('submit' , o => {
         order: document.getElementById('orderId').value
     };
     
-    fetch(`orderbyorderid/${search.orderId}`)
+    fetch(`orderbyorderid/${search.order}`)
         .then(response => response.json())
         .then(order => {
             var table = document.getElementById("ordertable");
