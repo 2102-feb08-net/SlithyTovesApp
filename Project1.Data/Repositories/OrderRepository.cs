@@ -25,7 +25,7 @@ namespace Project1.Data
             _context.SaveChanges();
         }
 
-        public List<BL.Order> GetOrdersByLocationId(int id)
+        public List<BL.Order> GetOrdersByStoreId(int id)
         {
             var list = new List<BL.Order>();
             var results = _context.Set<Order>().Where(c => c.StoreId == id).ToList();
@@ -36,6 +36,13 @@ namespace Project1.Data
             }
            
             return list;
+        }
+
+        public BL.Order GetOrderByOrderId(int id)
+        {
+            var result = _context.Orders.Where(o => o.OrderId == id).First();
+            BL.Order order = new BL.Order(result.OrderId, result.CustomerId, result.StoreId, result.OrderDate, result.Subtotal);
+            return order;
         }
 
         public List<BL.Order> GetOrdersByCustomerId(int id)

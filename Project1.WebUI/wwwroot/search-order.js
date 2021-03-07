@@ -1,12 +1,16 @@
-var myorder = document.getElementById("findorder");
+function navigateToMainMenu() {
+    window.location.href = "/index.html"
+}
+
+var ordersearch = document.getElementById("getorder");
     
-myorder.addEventListener('submit' , o => {
+ordersearch.addEventListener('submit' , o => {
     o.preventDefault();
     const search = {
-        order: document.getElementById('order-no').value
+        order: document.getElementById('orderId').value
     };
     
-    fetch(`orderbyorderno/${search.orderno}`)
+    fetch(`orderbyorderid/${search.orderId}`)
         .then(response => response.json())
         .then(order => {
             var table = document.getElementById("ordertable");

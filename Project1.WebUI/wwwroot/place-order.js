@@ -1,5 +1,9 @@
 'use strict';
 
+function navigateToMainMenu() {
+    window.location.href = "/index.html"
+}
+
 const init = function() {
     document.createElement('btn-order').addEventListener('click', send);
 }

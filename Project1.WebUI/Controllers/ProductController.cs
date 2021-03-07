@@ -5,7 +5,6 @@ using Project1.BL;
 namespace Project1.WebUI
 {
     [ApiController]
-    [Route("api/product")]
     public class ProductController : ControllerBase
     {
         private readonly IProductRepository _productRepository;
