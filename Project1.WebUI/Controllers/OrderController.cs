@@ -21,7 +21,7 @@ namespace Project1.WebUI.Controllers
             _orderRepository.CreateOrder(order);
         }
 
-        [HttpGet("ordersbycustomerid/{customerid}")]
+        [HttpGet("ordersbycustomerid/{id}")]
         public List<BL.Order> GetOrderByCustomerId(int id)
         {
             return _orderRepository.GetOrdersByCustomerId(id);
