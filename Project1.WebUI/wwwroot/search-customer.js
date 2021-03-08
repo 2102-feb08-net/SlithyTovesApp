@@ -28,4 +28,5 @@ customersearch.addEventListener('submit' , e =>  {
             cell5.innerHTML = `${customer.email}`;
             cell6.innerHTML = `${customer.zip}`;
         });
+        custtable.hidden = false;
     })

@@ -16,7 +16,8 @@ fetch(`orderdetailsbyorderid/${search.order}`)
         var table = document.getElementById("ordertable");
         order.products.map(product => {
             var row = table.insertRow();
-            for(let i = 0; i < 8; i++) {
+            var numberOfColumns = 8;
+            for(let i = 0; i < numberOfColumns; i++) {  
                 switch(i) {
                     case 0: row.insertCell(i).innerHTML = `${order.orderId}`;
                     break;
@@ -38,5 +39,6 @@ fetch(`orderdetailsbyorderid/${search.order}`)
                 }
             }
         })         
+        ordertable.hidden = false;
     });
 })

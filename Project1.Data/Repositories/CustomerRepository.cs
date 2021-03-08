@@ -53,7 +53,6 @@ namespace Project1.Data
             var result = _context.Customers.Where(c => c.CustomerId == id).First();
             BL.Customer customer = 
                 new BL.Customer(result.CustomerId, result.FirstName, result.LastName, result.Phone, result.Email, result.Zip);
-            //Console.WriteLine($"\n\nCustomer ID: {customer.CustomerId}\nName: {customer.FirstName} {customer.LastName}\nPhone: {customer.Phone}\nEmail: {customer.Email}\nZip: {customer.Zip}");
             return customer;
         }
     }
