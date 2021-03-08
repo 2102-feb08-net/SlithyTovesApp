@@ -1,8 +1,7 @@
 using System;
 using Xunit;
 using Project1.BL;
-using Microsoft.VisualStudio.CodeCoverage;
-using Microsoft.VisualStudio.TestPlatform;
+
 
 namespace Project1.Test
 {

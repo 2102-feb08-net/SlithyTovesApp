@@ -1,5 +1,6 @@
 using System;
 
+
 namespace Project1.BL
 {
     public class OrderDetail

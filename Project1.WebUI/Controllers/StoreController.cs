@@ -15,10 +15,9 @@ namespace Project1.WebUI.Controllers
         }
 
         [HttpGet("storebyid/{id}")]
-        public ActionResult<BL.Store> GetStoreById(int id)
+        public BL.Store GetStoreById(int id)
         {
-            var store =  _storeRepository.GetStoreById(id);
-            return Ok(store);
+            return _storeRepository.GetStoreById(id);
         }
     }
 }

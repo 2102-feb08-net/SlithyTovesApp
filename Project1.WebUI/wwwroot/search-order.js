@@ -15,9 +15,9 @@ fetch(`orderdetailsbyorderid/${search.order}`)
     .then(order => {
         var table = document.getElementById("ordertable");
         order.products.map(product => {
-            var row = table.insertRow();
+            var row = table.insertRow(1);
             var numberOfColumns = 8;
-            for(let i = 0; i < numberOfColumns; i++) {  
+            for(let i = 0; i < numberOfColumns; i++) {
                 switch(i) {
                     case 0: row.insertCell(i).innerHTML = `${order.orderId}`;
                     break;

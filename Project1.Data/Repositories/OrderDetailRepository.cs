@@ -1,11 +1,8 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Project1.BL;
-using Project1.Data;
-using Microsoft.EntityFrameworkCore;
 using static Project1.BL.OrderDetailDTO;
+
 
 namespace Project1.Data
 {

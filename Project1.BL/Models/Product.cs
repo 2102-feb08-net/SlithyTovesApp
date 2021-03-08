@@ -1,5 +1,3 @@
-using System.ComponentModel.DataAnnotations;
-
 namespace Project1.BL
 {
     public class Product

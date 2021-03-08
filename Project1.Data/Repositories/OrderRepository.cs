@@ -54,7 +54,7 @@ namespace Project1.Data
             {
                 list.Add(new BL.Order(result.OrderId, result.CustomerId, result.StoreId, result.OrderDate, result.Subtotal));
             }
-            
+
             return list;
         }
     }

@@ -33,7 +33,7 @@ namespace Project1.WebUI.Controllers
             return _orderRepository.GetOrderByOrderId(id);
         }
 
-        [HttpGet("ordersbystoreid/{storeid}")]
+        [HttpGet("ordersbystoreid/{id}")]
         public List<BL.Order> GetOrdersByStoreId(int id)
         {
             return _orderRepository.GetOrdersByStoreId(id);

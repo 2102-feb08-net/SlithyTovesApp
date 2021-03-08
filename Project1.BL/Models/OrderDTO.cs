@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 
+
 namespace Project1.BL
 {
     public class OrderDetailDTO
@@ -25,7 +26,7 @@ namespace Project1.BL
                 ProductName = productName;
                 UnitPrice = unitPrice;
             }
-            
+
             public static implicit operator List<object>(ProductInfo v)
             {
                 throw new NotImplementedException();
