@@ -1,11 +1,9 @@
-using System.ComponentModel.DataAnnotations;
-
 namespace Project1.BL
 {
     public class Store
     {
         public int StoreId { get; private set; }
-        public string? StoreName { get; set; }
+        public string StoreName { get; set; }
 
         public Store()
         {   

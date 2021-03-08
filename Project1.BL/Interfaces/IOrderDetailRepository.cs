@@ -1,10 +1,10 @@
 using System.Collections.Generic;
-
+using System.Threading.Tasks;
 
 namespace Project1.BL
 {
     public interface IOrderDetailRepository
     {        
-        BL.OrderDetail GetOrderDetailsByOrderId(int id);
+        BL.OrderDetailDTO GetOrderDetailsByOrderId(int id);
     }
 }

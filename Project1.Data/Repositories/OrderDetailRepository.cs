@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Project1.BL;
 using Project1.Data;
+using Microsoft.EntityFrameworkCore;
+using static Project1.BL.OrderDetailDTO;
 
 namespace Project1.Data
 {
@@ -15,11 +17,22 @@ namespace Project1.Data
         {
             _context = context;
         }
-        public BL.OrderDetail GetOrderDetailsByOrderId(int id)
+        public OrderDetailDTO GetOrderDetailsByOrderId(int id)
         {
-            var deets = _context.OrderDetails.Where(o => o.OrderId == id).First();
-            BL.OrderDetail searched = new BL.OrderDetail(deets.OrderId, deets.ProductId, deets.Quantity);
-            return searched;
+            OrderDetailDTO result = new OrderDetailDTO();
+            result.Products = new List<ProductInfo>();
+            var deets = _context.OrderDetails.Where(o => o.OrderId == id).ToList();
+
+            foreach (var details in deets) {
+                Product productByProductId = _context.Products.First(p => p.ProductId == details.ProductId);
+                Order orderByOrderId = _context.Orders.First(o => o.OrderId == details.OrderId);
+                result.OrderId = id;
+                result.OrderDate = orderByOrderId.OrderDate;
+                result.SubTotal = orderByOrderId.Subtotal;
+                result.CustomerId = orderByOrderId.CustomerId;
+                result.Products.Insert(0, new ProductInfo(productByProductId.ProductId, details.Quantity, productByProductId.ProductName, productByProductId.UnitPrice));
+            }
+            return result;
         }
     }
 }

@@ -10,20 +10,33 @@ ordersearch.addEventListener('submit' , o => {
         order: document.getElementById('orderId').value
     };
     
-    fetch(`orderbyorderid/${search.order}`)
-        .then(response => response.json())
-        .then(order => {
-            var table = document.getElementById("ordertable");
-            var row = table.insertRow(1);
-            var cell1 = row.insertCell(0);
-            var cell2 = row.insertCell(1);
-            var cell3 = row.insertCell(2);
-            var cell4 = row.insertCell(3);
-            var cell5 = row.insertCell(4);
-            cell1.innerHTML = `${order.orderId}`;
-            cell2.innerHTML = `${order.customerId}`;
-            cell3.innerHTML = `${order.storeId}`;
-            cell4.innerHTML = `${order.orderDate}`;
-            cell5.innerHTML = `${order.subtotal}`;
-        });
+fetch(`orderdetailsbyorderid/${search.order}`)
+    .then(response => response.json())
+    .then(order => {
+        var table = document.getElementById("ordertable");
+        order.products.map(product => {
+            var row = table.insertRow();
+            for(let i = 0; i < 8; i++) {
+                switch(i) {
+                    case 0: row.insertCell(i).innerHTML = `${order.orderId}`;
+                    break;
+                    case 1: row.insertCell(i).innerHTML = `${order.orderDate}`;
+                    break;
+                    case 2: row.insertCell(i).innerHTML = `${order.customerId}`;
+                    break;
+                    case 3: row.insertCell(i).innerHTML = `${order.subTotal}`;
+                    break;
+                    case 4: row.insertCell(i).innerHTML = `${product.productId}`;
+                    break;
+                    case 5: row.insertCell(i).innerHTML = `${product.productName}`;
+                    break;
+                    case 6: row.insertCell(i).innerHTML = `${product.quantity}`;
+                    break;
+                    case 7: row.insertCell(i).innerHTML = `${product.unitPrice}`;
+                    default:
+                    break;
+                }
+            }
+        })         
+    });
 })

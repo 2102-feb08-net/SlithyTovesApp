@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Project1.BL;
 
@@ -15,7 +17,7 @@ namespace Project1.WebUI.Controllers
         }
 
         [HttpGet("orderdetailsbyorderid/{id}")]
-        public BL.OrderDetail GetOrderDetailsByOrderId(int id)
+        public OrderDetailDTO GetOrderDetailsByOrderId(int id)
         {
             return _orderDetailRepository.GetOrderDetailsByOrderId(id);
         }

@@ -13,6 +13,14 @@ namespace Project1.Data
             OrderDetails = new HashSet<OrderDetail>();
         }
 
+        public Product(Product product) {
+            this.ProductId = product.ProductId;
+            this.ProductName = product.ProductName;
+            this.UnitPrice = product.UnitPrice;
+            Inventories = new HashSet<Inventory>();
+            OrderDetails = new HashSet<OrderDetail>();
+        }
+
         public int ProductId { get; set; }
         public string ProductName { get; set; }
         public decimal UnitPrice { get; set; }
