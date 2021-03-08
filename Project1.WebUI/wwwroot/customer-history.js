@@ -14,11 +14,9 @@ ordersearch.addEventListener('submit' , e =>  {
         .then(response => response.json())
         .then(order => {
             var table = document.getElementById("ordertable");
-            debugger;
             var numberOfColumns = 5;
             for (let o of order) {
                 var row = table.insertRow();
-                debugger;
                 for(let i = 0; i < numberOfColumns; i++) { 
                     switch(i) {
                         case 0: row.insertCell(i).innerHTML = `${o.customerId}`;

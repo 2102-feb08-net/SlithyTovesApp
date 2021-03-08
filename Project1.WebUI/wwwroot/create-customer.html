@@ -13,29 +13,29 @@
     <div class="container">
         <h1 class="text-center">Create Customer</h1>
         <br>
-        <form id="newcust">  
+        <form id="newcust" method="POST">  
             <div class="row">
                 <div class="form-group col">
                     <label for="firstname">First Name</label>
-                    <input type="text" class="form-control" id="firstname" required minlength="2">
+                    <input type="text" class="form-control" name="firstName" required minlength="2">
                 </div>
                 <div class="form-group col">
                     <label for="lastname">Last Name</label>
-                    <input type="text" class="form-control" id="lastname" required minlength="2">
+                    <input type="text" class="form-control" name="lastName" required minlength="2">
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-3">
                     <label for="phone">Phone</label>
-                    <input type="text" class="form-control" id="phone" required maxlength="10" minlength="10">
+                    <input type="text" class="form-control" name="phone" required maxlength="10" minlength="10">
                 </div>
                 <div class="form-group col-md-6 col-8">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" required minlength="6">
+                    <input type="email" class="form-control" name="email" required minlength="6">
                 </div>
                 <div class="form-group col-md-3 col-4">
                     <label for="zip">Zip Code</label>
-                    <input type="text" class="form-control" id="zip" required maxlength="5" minlength="5">
+                    <input type="text" class="form-control" name="zip" required maxlength="5" minlength="5">
                 </div>
             </div>
             <div class="text-center">
@@ -57,5 +57,6 @@
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
+    <script src="create-customer.js"></script>
 </body>
 </html>

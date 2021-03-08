@@ -18,7 +18,6 @@ ordersearch.addEventListener('submit' , e =>  {
             var numberOfColumns = 5;
             for (let o of order) {
                 var row = table.insertRow();
-                debugger;
                 for(let i = 0; i < numberOfColumns; i++) { 
                     switch(i) {
                         case 0: row.insertCell(i).innerHTML = `${o.storeId}`;
