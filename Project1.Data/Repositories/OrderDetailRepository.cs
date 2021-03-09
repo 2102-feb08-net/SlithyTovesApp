@@ -14,6 +14,7 @@ namespace Project1.Data
         {
             _context = context;
         }
+        
         public OrderDetailDTO GetOrderDetailsByOrderId(int id)
         {
             OrderDetailDTO result = new OrderDetailDTO();
@@ -25,7 +26,7 @@ namespace Project1.Data
                 Order orderByOrderId = _context.Orders.First(o => o.OrderId == details.OrderId);
                 result.OrderId = id;
                 result.OrderDate = orderByOrderId.OrderDate;
-                result.SubTotal = orderByOrderId.Subtotal;
+                result.Subtotal = orderByOrderId.Subtotal;
                 result.CustomerId = orderByOrderId.CustomerId;
                 result.Products.Insert(0, new ProductInfo(productByProductId.ProductId, details.Quantity, productByProductId.ProductName, productByProductId.UnitPrice));
             }

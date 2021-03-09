@@ -25,7 +25,7 @@ fetch(`orderdetailsbyorderid/${search.order}`)
                     break;
                     case 2: row.insertCell(i).innerHTML = `${order.customerId}`;
                     break;
-                    case 3: row.insertCell(i).innerHTML = `${order.subTotal}`;
+                    case 3: row.insertCell(i).innerHTML = `${order.subtotal}`;
                     break;
                     case 4: row.insertCell(i).innerHTML = `${product.productId}`;
                     break;

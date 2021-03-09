@@ -5,8 +5,8 @@ function navigateToMainMenu() {
 document.getElementById('createcust').addEventListener('click', event => 
     createCustomer(event));
 
-
 function createCustomer(event) {
+    try {
     event.preventDefault();
     var newCustForm = document.getElementById('newcust');
     var newCust = {
@@ -23,11 +23,11 @@ function createCustomer(event) {
         },
         body: JSON.stringify(newCust)
     }).then(response => {
-        debugger;
         if (!response.ok) {
             throw new Error(`Network response was not ok (${response.status})`);
-        } else {
-            location.reload();
-        }
-    });
+        } 
+    });}
+    catch (error) {
+        console.log("Error adding customer.");
+    }
 }

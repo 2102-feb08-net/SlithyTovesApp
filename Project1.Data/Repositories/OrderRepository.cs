@@ -1,6 +1,9 @@
+using System;
 using Project1.BL;
 using System.Collections.Generic;
 using System.Linq;
+using static Project1.BL.OrderDetailDTO;
+
 
 
 namespace Project1.Data
@@ -8,21 +11,51 @@ namespace Project1.Data
     public class OrderRepository : IOrderRepository
     {
 
-        private readonly Data.Project1Context _context;
-            
+        private readonly Project1Context _context;
+
         public OrderRepository(Project1Context context)
         {
             _context = context;
         }
 
-        public void CreateOrder(BL.Order order)
+        public void CreateOrder(OrderDetailDTO order)
         {
-            BL.Order orderToCreate = new BL.Order() 
-                { OrderId = order.OrderId, CustomerId = order.CustomerId, StoreId = order.StoreId, OrderDate = order.OrderDate, 
-                    Subtotal = order.Subtotal };
-            
+
+            Order orderToCreate = new Order()
+            {
+                CustomerId = order.CustomerId,
+                StoreId = order.StoreId,
+                OrderDate = DateTime.Now,
+                Subtotal = order.Subtotal
+            };
+
             _context.Add(orderToCreate);
             _context.SaveChanges();
+
+            Order justCreated = _context.Orders.OrderBy(x => x.OrderId).Last();
+            var deetsOfJustCreated = _context.OrderDetails.OrderBy(x => x.OrderId).Last();
+
+            List<OrderDetail> listOfDeets = new List<OrderDetail>();
+
+            foreach (var item in order.Products)
+            {
+                var moreInfo = new OrderDetail
+                {
+                    OrderId = justCreated.OrderId,
+                    ProductId = item.ProductId,
+                    Quantity = item.Quantity
+                };
+                listOfDeets.Add(moreInfo);
+            }
+
+            foreach (var deet in listOfDeets)
+            {
+                _context.Add(deet);
+                _context.SaveChanges();
+            }
+
+
+
         }
 
         public List<BL.Order> GetOrdersByStoreId(int id)

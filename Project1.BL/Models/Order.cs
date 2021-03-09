@@ -24,5 +24,13 @@ namespace Project1.BL
             OrderDate = orderDate;
             Subtotal = subtotal;
         }
+
+        public Order(int customerId, int storeId, DateTime orderDate, decimal subtotal)
+        {
+            CustomerId = customerId;
+            StoreId = storeId;
+            OrderDate = orderDate;
+            Subtotal = subtotal;
+        }
     }
 }

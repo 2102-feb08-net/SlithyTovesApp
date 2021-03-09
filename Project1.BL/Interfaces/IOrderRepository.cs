@@ -5,7 +5,7 @@ namespace Project1.BL
 {
     public interface IOrderRepository
     {
-        void CreateOrder(Order order);
+        void CreateOrder(OrderDetailDTO order);
 
         List<BL.Order> GetOrdersByStoreId(int id);
         

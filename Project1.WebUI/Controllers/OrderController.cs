@@ -16,7 +16,7 @@ namespace Project1.WebUI.Controllers
         }
 
         [HttpPost("neworder")]
-        public void CreateOrder(BL.Order order)
+        public void CreateOrder(BL.OrderDetailDTO order)
         {
             _orderRepository.CreateOrder(order);
         }
