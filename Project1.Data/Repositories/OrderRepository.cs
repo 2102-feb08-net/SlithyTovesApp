@@ -54,7 +54,7 @@ namespace Project1.Data
                 _context.SaveChanges();
             }
 
-
+            // update inventory
 
         }
 
