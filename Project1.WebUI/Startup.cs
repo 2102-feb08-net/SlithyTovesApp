@@ -66,6 +66,7 @@ namespace Project1.WepUI
             {
                 endpoints.MapControllers();
             });
+
         }
     }
 }
