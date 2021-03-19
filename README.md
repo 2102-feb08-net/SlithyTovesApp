@@ -1,4 +1,4 @@
-# Bookstore App
+# SlithyToves - A Bookstore App
 
 ## Description
 A web application that stores and accesses database information about a store's inventory, orders, products, and customers.  The goal of this app was to allow the
